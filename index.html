@@ -1,0 +1,77 @@
+<html>
+  <head>
+    <style>
+      /* Add some styling to the calculator */
+      input[type="number"] {
+        width: 80px;
+        height: 30px;
+        font-size: 20px;
+        margin: 10px;
+      }
+      select {
+        width: 80px;
+        height: 30px;
+        font-size: 20px;
+        margin: 10px;
+      }
+      button {
+        width: 120px;
+        height: 50px;
+        font-size: 20px;
+        margin: 10px;
+      }
+      p {
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- Add a title and form for the calculator -->
+    <h1>Calculator</h1>
+    <form>
+      <!-- Add input fields and a dropdown menu for the numbers and operator -->
+      <input type="number" id="num1" value="0" />
+      <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="*">*</option>
+        <option value="/">/</option>
+      </select>
+      <input type="number" id="num2" value="0" />
+      <!-- Add a button to perform the calculation -->
+      <button type="button" onclick="calculate()">Calculate</button>
+      <!-- Add a paragraph element to display the result -->
+      <p id="result"></p>
+    </form>
+    <script>
+      function calculate() {
+        // Get the input values
+        const num1 = document.getElementById("num1").value;
+        const operator = document.getElementById("operator").value;
+        const num2 = document.getElementById("num2").value;
+
+        // Perform the calculation
+        let result;
+        switch (operator) {
+          case "+":
+            result = Number(num1) + Number(num2);
+            break;
+          case "-":
+            result = num1 - num2;
+            break;
+          case "*":
+            result = num1 * num2;
+            break;
+          case "/":
+            result = num1 / num2;
+            break;
+          default:
+            result = "Invalid operator";
+        }
+
+        // Display the result
+        document.getElementById("result").innerHTML = result;
+      }
+    </script>
+  </body>
+</html>
